@@ -12,10 +12,10 @@ from scipy.linalg import eigh
 class Parser: 
 
     def __init__(self):
-        dir = os.getcwd()
-        self.data_path_coil20 = dir + '/data/coil-20/coil-20-proc/'
-        self.data_path_mnist = dir + '/data/mnist/mnist'
-        self.data_path_netflix = dir + '/home/venix/tsne/data/netflix-dataset/netflix_titles.csv'
+       
+        self.data_path_coil20 ='/home/kjsd1232/Desktop/tsne/parser/data/coil-20-proc/'
+        self.data_path_mnist = './data/mnist+train.csv'
+        self.data_path_netflix = './data/netflix_titles.csv'
     
         
     def parse_image_label_coil(self, filename):
@@ -65,10 +65,11 @@ class Parser:
 
         images = []
         labels = []
-
+        print("This is : ",self.data_path_coil20)
         for filepath in os.listdir(self.data_path_coil20):
             f = os.path.join(self.data_path_coil20, filepath)
             img = cv2.imread(f)
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             images.append(img)
             labels.append(self.parse_image_label_coil(filepath))
 
