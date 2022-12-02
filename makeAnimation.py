@@ -30,8 +30,9 @@ def scatterPlot(Y,labels):
     Y: <number_of_iterations>*<number_ofpoints> ka array of projected points in the lower dimensional space
     labels: Label for each point in the lower dimensional space Y
     """
-    uniqueLabels = np.unique(labels).shape[0]
     fig, ax, patches = initialPlot(uniqueLabels)
+    uniqueLabels = np.unique(labels).shape[0]
+    
     ax.scatter(Y[:,0],Y[:,1],c=labels)
     plt.show()
 
@@ -46,9 +47,9 @@ def createAnimation(Y,labels,figureName,savePath):
     savePath: Path to save the animation
 
     """
+    uniqueLabels = np.unique(labels).shape[0]
     fig,ax ,patches = initialPlot(uniqueLabels)
 
-    uniqueLabels = np.unique(labels).shape[0]
     def init():
         return scatterPlot
     def animationLoop(iteration):
@@ -66,5 +67,11 @@ def createAnimation(Y,labels,figureName,savePath):
         fig, animationLoop,init_func=init, frames=range(Y.shape[0]), interval=50)
 
     animation.save(savePath+figureName+'.mp4', writer='ffmpeg', fps=30)    
-   
 
+import pickle 
+with open('y.pkl','rb') as f:
+    y = pickle.load(f)
+with open('Y_iterations.pkl','rb') as f:
+    Y = pickle.load(f)
+
+createAnimation(Y,y,'mnist','')
