@@ -1,6 +1,6 @@
 # t-Distributed Stochastic Neighbour Embedding ( t-SNE )
 
-    ![](https://github.com/KarmanjyotSingh/tsne/blob/main/images/showgif.gif)
+![](https://github.com/KarmanjyotSingh/tsne/blob/main/images/showgif.gif)
 
 ## Introduction
 
@@ -25,6 +25,9 @@ Our implemented tSNE algorithm could be split into multiple modules, which are a
     ![](https://miro.medium.com/max/700/1*DaS7uxlKKN3sqTysF-Z0pw.gif)
 
 ## Core t-SNE
+
+- This module implemented the main t-SNE algorithm, that includes the calculation of the probability matrixes, finding the suitable sigmas for the optimal normal distribution, finding the probability matrix for points in the lower dimensional space, and finnalyy using gradient descent algorithm for minimising the cost function and reach a global optimum.
+
 ### Animation and Plotting: Displaying the Results
 
 - This module takes in the reduced dimension points `Y` and generates figures and plots for the same in the lower dimensional space, providing useful insights and visualizations of the data set points, with similar or related points clustered together and placed nearby in the low dimensional feature space.
@@ -56,6 +59,20 @@ We used the following datasets for running and analysing our t-SNE algorithm.
     1.   The Olivetti faces data set 7 consists of images of 40 individuals with small variations in viewpoint, large variations in expression, and occasional addition of glasses. The data set consists of 400 images (10 per individual) of size 92 × 112 = 10, 304 pixels, and is labeled according to identity. We used `sklearn` datasets for the Olivetti dataset.
 
 ## Results and Plots 
+
+- Following was the plot generated on the dataset MNIST dataset.
+
+    <img src="./images/mnist.jpeg">
+
+- Plot generated using PCA :   
+    <img src="./images/mnist_pca.png">
+- Plot generated using Isomap:
+    <img src="./images/mnist_isomap.png"> 
+
+- Seeing from our previous plots of PCA and Isomaps, we could clearly infer that the tsne technique produces better visualisation for the mnist data plots with retaining the local structure of the data samples. 
+
+    We could clearly see the similar classes cluster together, while different classes tend to have a considerable separation between them even in the lower dimension projection.
+
 
 ## References 
 
