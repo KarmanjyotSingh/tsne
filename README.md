@@ -62,7 +62,7 @@ We used the following datasets for running and analysing our t-SNE algorithm.
 
 - Following was the plot generated on the dataset MNIST dataset.
 
-    <img src="./images/mnist.jpeg">
+    <img src="./images/mnist_tsne.jpeg">
 
 - Plot generated using PCA :   
     <img src="./images/mnist_pca.png">
